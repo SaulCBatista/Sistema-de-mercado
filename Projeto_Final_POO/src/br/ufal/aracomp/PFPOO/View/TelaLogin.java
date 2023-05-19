@@ -16,16 +16,13 @@ import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class TelaLogin {
+public class TelaLogin extends JFrame{
 	
 	private Administrador adm = new Administrador("padrao@gmail.com", "padrao", "Padrão");
 	private JFrame frmLogin;
 	private JTextField campoLogin;
 	private JPasswordField campoSenha;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -39,16 +36,10 @@ public class TelaLogin {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public TelaLogin() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frmLogin = new JFrame();
 		frmLogin.setTitle("Login");
@@ -61,13 +52,13 @@ public class TelaLogin {
 		frmLogin.getContentPane().add(campoLogin);
 		campoLogin.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Login");
-		lblNewLabel.setBounds(50, 40, 46, 14);
-		frmLogin.getContentPane().add(lblNewLabel);
+		JLabel labelLogin = new JLabel("Login");
+		labelLogin.setBounds(50, 40, 46, 14);
+		frmLogin.getContentPane().add(labelLogin);
 		
-		JLabel lblSenha = new JLabel("Senha");
-		lblSenha.setBounds(50, 101, 46, 14);
-		frmLogin.getContentPane().add(lblSenha);
+		JLabel labelSenha = new JLabel("Senha");
+		labelSenha.setBounds(50, 101, 46, 14);
+		frmLogin.getContentPane().add(labelSenha);
 		
 		JButton botaoEntrar = new JButton("Entrar");
 		botaoEntrar.addActionListener(new ActionListener() {
@@ -76,7 +67,8 @@ public class TelaLogin {
 				String senha = String.valueOf(campoSenha.getPassword());
 				
 				if(login.equals(adm.getLogin()) && senha.equals(adm.getSenha())) {
-					System.out.println("Usuario padrão");
+					TelaAdministrador telaAdm = new TelaAdministrador();
+					telaAdm.setVisible(true);
 				}
 				else {
 					JOptionPane.showMessageDialog(botaoEntrar, "login ou senha incorretos!");
@@ -88,6 +80,12 @@ public class TelaLogin {
 		frmLogin.getContentPane().add(botaoEntrar);
 		
 		JButton botaoCadastrar = new JButton("Cadastrar");
+		botaoCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastro t = new TelaCadastro();
+				t.setVisible(true);
+			}
+		});
 		botaoCadastrar.setBounds(148, 152, 106, 23);
 		frmLogin.getContentPane().add(botaoCadastrar);
 		
