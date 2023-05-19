@@ -4,7 +4,7 @@ public class Cadastros {
 
 	private static int quantClientes;
 	private static int quantProdutos;
-	private static int quantFuncionarios;
+	private static int quantAdministrador;
 	
 	private Cadastros () {
 		
@@ -15,13 +15,17 @@ public class Cadastros {
 		return new Cliente(login, senha, nome);
 	}
 	
+	public static Administrador cadastrarAdministrador(String login, String senha, String nome) {
+		quantAdministrador++;
+		return new Administrador(login, senha, nome);
+	}
+	
 	public static Endereco cadastrarEndereco(int cep, String bairro, String rua, int numero) {
-		quantProdutos++;
 		return new Endereco(cep, bairro, rua, numero);
 	}
 	
 	public static Produto cadastrarProduto(String nome, double precoCompra, double precoVenda) {
-		quantFuncionarios++;
+		quantProdutos++;
 		return new Produto(quantProdutos, nome, precoCompra, precoVenda);
 	}
 	
@@ -29,11 +33,11 @@ public class Cadastros {
 		return quantClientes;
 	}
 	
-	public static int quantProdutos() {
-		return quantProdutos;
+	public static int quantAdministrador() {
+		return quantAdministrador;
 	}
 	
-	public static int quantFuncionarios() {
-		return quantFuncionarios;
+	public static int quantProdutos() {
+		return quantProdutos;
 	}
 }
