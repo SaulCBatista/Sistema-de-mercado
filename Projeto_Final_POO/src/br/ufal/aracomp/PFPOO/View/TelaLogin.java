@@ -7,7 +7,8 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.JTextField;
 
-import br.ufal.aracomp.PFPOO.Control.Administrador;
+import br.ufal.aracomp.PFPOO.Model.AdministradorModel;
+import br.ufal.aracomp.PFPOO.Model.Cadastros;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -18,12 +19,12 @@ import java.awt.event.ActionEvent;
 
 public class TelaLogin extends JFrame{
 	
-	private Administrador adm = new Administrador("padrao@gmail.com", "padrao", "Padrão");
+	private AdministradorModel adm = Cadastros.criarCadastroAdministrador("padrao@gmail.com", "123456", "padrão");
 	private JFrame frmLogin;
 	private JTextField campoLogin;
 	private JPasswordField campoSenha;
 
-	public static void main(String[] args) {
+	public void iniciar() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

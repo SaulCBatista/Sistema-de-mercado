@@ -1,13 +1,13 @@
-package br.ufal.aracomp.PFPOO.Control;
+package br.ufal.aracomp.PFPOO.Model;
 
-public class Endereco {
+public class EnderecoModel {
 	
 	private int cep;
 	private String bairro;
 	private String rua;
 	private int numero;
 	
-	Endereco(int cep, String bairro, String rua, int numero){
+	EnderecoModel(int cep, String bairro, String rua, int numero){
 		this.cep = cep;
 		this.bairro = bairro;
 		this.rua = rua;

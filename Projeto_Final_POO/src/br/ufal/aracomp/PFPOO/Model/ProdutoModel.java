@@ -1,13 +1,13 @@
-package br.ufal.aracomp.PFPOO.Control;
+package br.ufal.aracomp.PFPOO.Model;
 
-public class Produto {
+public class ProdutoModel {
 	
 	private int ID;
 	private String nome;
 	private double precoCompra;
 	private double precoVenda;
 	
-	Produto(int ID, String nome, double precoCompra, double precoVenda) {
+	ProdutoModel(int ID, String nome, double precoCompra, double precoVenda) {
 		this.ID = ID;
 		this.nome = nome;
 		this.precoCompra = precoCompra;

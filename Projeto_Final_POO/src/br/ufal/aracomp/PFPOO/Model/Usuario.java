@@ -1,4 +1,4 @@
-package br.ufal.aracomp.PFPOO.Control;
+package br.ufal.aracomp.PFPOO.Model;
 
 public abstract class Usuario {
 	protected String login;
