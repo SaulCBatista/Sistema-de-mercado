@@ -11,7 +11,7 @@ public class CadastrosModel {
 	private static int quantProdutos;
 	private static int quantAdministrador;
 	private static Cliente listaCliente = new Cliente();
-	private static Administrador listaAdministrador = new Administrador();
+	private static Administrador listaAdministrador = new Administrador("padrao@gmail.com", "123456", "padrao");
 	private static Produto listaProduto = new Produto();
 	private static Endereco listaEndereco = new Endereco();
 	

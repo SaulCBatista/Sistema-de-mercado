@@ -1,13 +1,11 @@
 package br.ufal.arapacomp.PFPOO.Control;
 
-import java.util.List;
-
 import br.ufal.aracomp.PFPOO.Model.CadastrosModel;
-import br.ufal.aracomp.PFPOO.Model.ClienteModel;
 
 public class Cadastros {
 	
 	private Produto produto = new Produto();
+	private Administrador administrador = new Administrador("padrao@gmail.com", "123456", "padrao");
 	
 	public Cadastros() {
 	}
@@ -30,5 +28,9 @@ public class Cadastros {
 	
 	public void listarProdutos() {
 		produto.listarProdutos();
+	}
+	
+	public Boolean verificarAdmPadrao(String login, String senha) {
+		return administrador.verificarAdmPadrao(login, senha);
 	}
 }

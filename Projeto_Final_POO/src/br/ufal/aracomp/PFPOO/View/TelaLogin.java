@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 
 import br.ufal.aracomp.PFPOO.Model.AdministradorModel;
 import br.ufal.aracomp.PFPOO.Model.CadastrosModel;
+import br.ufal.arapacomp.PFPOO.Control.Cadastros;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,10 +20,10 @@ import java.awt.event.ActionEvent;
 
 public class TelaLogin extends JFrame{
 	
-	/*private AdministradorModel adm = CadastrosModel.criarCadastroAdministrador("padrao@gmail.com", "123456", "padrão");*/
 	private JFrame frmLogin;
 	private JTextField campoLogin;
 	private JPasswordField campoSenha;
+	private Cadastros cadastro = new Cadastros();
 
 	public void iniciar() {
 		EventQueue.invokeLater(new Runnable() {
@@ -66,15 +67,16 @@ public class TelaLogin extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				String login = campoLogin.getText();
 				String senha = String.valueOf(campoSenha.getPassword());
-				/*
-				if(login.equals(adm.getLogin()) && senha.equals(adm.getSenha())) {
+				
+				if(cadastro.verificarAdmPadrao(login, senha)) {
 					TelaAdministrador telaAdm = new TelaAdministrador();
 					telaAdm.setVisible(true);
+					setVisible(false);
 				}
 				else {
 					JOptionPane.showMessageDialog(botaoEntrar, "login ou senha incorretos!");
 				}
-					*/
+					
 			}
 		});
 		botaoEntrar.setBounds(49, 152, 89, 23);
@@ -83,8 +85,9 @@ public class TelaLogin extends JFrame{
 		JButton botaoCadastrar = new JButton("Cadastrar");
 		botaoCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaCadastro t = new TelaCadastro();
-				t.setVisible(true);
+				TelaCadastroCliente telaCadastroCliente = new TelaCadastroCliente();
+				telaCadastroCliente.setVisible(true);
+				setVisible(false);
 			}
 		});
 		botaoCadastrar.setBounds(148, 152, 106, 23);

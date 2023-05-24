@@ -26,13 +26,22 @@ public class TelaAdministrador extends JFrame {
 		contentPane.add(botaoCadastrarAdm);
 		
 		JButton botaoCadastrarProduto = new JButton("Cadastrar produto");
+		botaoCadastrarProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaCadastroProduto telaCadastroProduto = new TelaCadastroProduto();
+				setVisible(false);
+				telaCadastroProduto.setVisible(true);
+			}
+		});
 		botaoCadastrarProduto.setBounds(131, 115, 181, 23);
 		contentPane.add(botaoCadastrarProduto);
 		
 		JButton botaoVoltar = new JButton("Voltar");
 		botaoVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
+				TelaLogin telaLogin = new TelaLogin();
+				telaLogin.setVisible(true);
+				dispose();
 			}
 		});
 		botaoVoltar.setBounds(170, 167, 105, 16);

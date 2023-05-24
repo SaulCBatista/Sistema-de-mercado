@@ -15,15 +15,15 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class TelaCadastro extends JFrame {
+public class TelaCadastroCliente extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField campoNome;
 	private JTextField campoLogin;
 	private JPasswordField campoSenha;
-	Cadastros cadastros = new Cadastros();
+	Cadastros cliente = new Cadastros();
 
-	public TelaCadastro() {
+	public TelaCadastroCliente() {
 		setTitle("Cadastro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -66,7 +66,7 @@ public class TelaCadastro extends JFrame {
 				String login = campoLogin.getText();
 				String senha = String.valueOf(campoSenha.getPassword());
 				
-				cadastros.cadastrarCliente(login, senha, nome);
+				cliente.cadastrarCliente(login, senha, nome);
 			}
 		});
 		botaoCadastrar.setBounds(130, 212, 100, 23);
@@ -75,7 +75,9 @@ public class TelaCadastro extends JFrame {
 		JButton botaoVoltar = new JButton("voltar");
 		botaoVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false); 
+				TelaLogin telaLogin = new TelaLogin();
+				telaLogin.setVisible(true);
+				dispose();
 			}
 		});
 		botaoVoltar.setBounds(240, 212, 89, 23);
