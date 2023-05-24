@@ -1,16 +1,19 @@
 package br.ufal.arapacomp.PFPOO.Control;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import br.ufal.aracomp.PFPOO.Model.ClienteModel;
 
 public class Cliente {
 
-	private List<Cliente> cliente;
+	private List<ClienteModel> cliente = new ArrayList<ClienteModel>();
 	
-	public Cliente(List<Cliente> cliente) {
-		this.cliente = cliente;
+	public Cliente() {
 	}
 	
-	public void cadastrarCliente(Cliente clienteModel) {
-		this.cliente.add(clienteModel);
+	public void cadastrarCliente(ClienteModel clienteModel) {
+		cliente.add(clienteModel);
+		System.out.println("Cliente cadastrado com sucesso!");
 	}
 }

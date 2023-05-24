@@ -1,0 +1,60 @@
+ package br.ufal.aracomp.PFPOO.Model;
+
+import br.ufal.arapacomp.PFPOO.Control.Administrador;
+import br.ufal.arapacomp.PFPOO.Control.Cliente;
+import br.ufal.arapacomp.PFPOO.Control.Endereco;
+import br.ufal.arapacomp.PFPOO.Control.Produto;
+
+public class CadastrosModel {
+
+	private static int quantClientes;
+	private static int quantProdutos;
+	private static int quantAdministrador;
+	private static Cliente listaCliente = new Cliente();
+	private static Administrador listaAdministrador = new Administrador();
+	private static Produto listaProduto = new Produto();
+	private static Endereco listaEndereco = new Endereco();
+	
+	private CadastrosModel () {
+		
+	}
+	
+	public static ClienteModel criarCadastroCliente(String login, String senha, String nome) {
+		quantClientes++;
+		ClienteModel cliente = new ClienteModel(login, senha, nome);
+		listaCliente.cadastrarCliente(cliente);
+		return cliente;
+	}
+	
+	public static AdministradorModel criarCadastroAdministrador(String login, String senha, String nome) {
+		quantAdministrador++;
+		AdministradorModel administrador = new AdministradorModel(login, senha, nome);
+		listaAdministrador.cadastrarAdministrador(administrador);
+		return administrador;
+	}
+	
+	public static EnderecoModel criarCadastroEndereco(int cep, String bairro, String rua, int numero) {
+		EnderecoModel endereco = new EnderecoModel(cep, bairro, rua, numero);
+		listaEndereco.cadastrarEndereco(endereco);
+		return endereco;
+	}
+	
+	public static ProdutoModel criarCadastroProduto(String nome, double precoCompra, double precoVenda) {
+		quantProdutos++;
+		ProdutoModel produto = new ProdutoModel(quantProdutos, nome, precoCompra, precoVenda);
+		listaProduto.cadastrarProduto(produto);
+		return produto;
+	}
+	
+	public static int quantClientes() {
+		return quantClientes;
+	}
+	
+	public static int quantAdministrador() {
+		return quantAdministrador;
+	}
+	
+	public static int quantProdutos() {
+		return quantProdutos;
+	}
+}

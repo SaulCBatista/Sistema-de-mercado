@@ -22,11 +22,11 @@ public class TelaAdministrador extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton botaoCadastrarAdm = new JButton("Cadastrar administrador");
-		botaoCadastrarAdm.setBounds(145, 81, 168, 23);
+		botaoCadastrarAdm.setBounds(131, 82, 181, 23);
 		contentPane.add(botaoCadastrarAdm);
 		
 		JButton botaoCadastrarProduto = new JButton("Cadastrar produto");
-		botaoCadastrarProduto.setBounds(145, 115, 168, 23);
+		botaoCadastrarProduto.setBounds(131, 115, 181, 23);
 		contentPane.add(botaoCadastrarProduto);
 		
 		JButton botaoVoltar = new JButton("Voltar");
@@ -35,7 +35,7 @@ public class TelaAdministrador extends JFrame {
 				setVisible(false);
 			}
 		});
-		botaoVoltar.setBounds(180, 168, 105, 16);
+		botaoVoltar.setBounds(170, 167, 105, 16);
 		contentPane.add(botaoVoltar);
 	}
 

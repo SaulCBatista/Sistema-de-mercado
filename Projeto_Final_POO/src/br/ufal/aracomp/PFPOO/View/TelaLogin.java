@@ -8,7 +8,7 @@ import java.awt.GridLayout;
 import javax.swing.JTextField;
 
 import br.ufal.aracomp.PFPOO.Model.AdministradorModel;
-import br.ufal.aracomp.PFPOO.Model.Cadastros;
+import br.ufal.aracomp.PFPOO.Model.CadastrosModel;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 
 public class TelaLogin extends JFrame{
 	
-	private AdministradorModel adm = Cadastros.criarCadastroAdministrador("padrao@gmail.com", "123456", "padrão");
+	/*private AdministradorModel adm = CadastrosModel.criarCadastroAdministrador("padrao@gmail.com", "123456", "padrão");*/
 	private JFrame frmLogin;
 	private JTextField campoLogin;
 	private JPasswordField campoSenha;
@@ -66,7 +66,7 @@ public class TelaLogin extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				String login = campoLogin.getText();
 				String senha = String.valueOf(campoSenha.getPassword());
-				
+				/*
 				if(login.equals(adm.getLogin()) && senha.equals(adm.getSenha())) {
 					TelaAdministrador telaAdm = new TelaAdministrador();
 					telaAdm.setVisible(true);
@@ -74,7 +74,7 @@ public class TelaLogin extends JFrame{
 				else {
 					JOptionPane.showMessageDialog(botaoEntrar, "login ou senha incorretos!");
 				}
-					
+					*/
 			}
 		});
 		botaoEntrar.setBounds(49, 152, 89, 23);

@@ -4,7 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import br.ufal.aracomp.PFPOO.Model.Cadastros;
+import br.ufal.aracomp.PFPOO.Model.CadastrosModel;
+import br.ufal.arapacomp.PFPOO.Control.Cadastros;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -20,6 +21,7 @@ public class TelaCadastro extends JFrame {
 	private JTextField campoNome;
 	private JTextField campoLogin;
 	private JPasswordField campoSenha;
+	Cadastros cadastros = new Cadastros();
 
 	public TelaCadastro() {
 		setTitle("Cadastro");
@@ -64,7 +66,7 @@ public class TelaCadastro extends JFrame {
 				String login = campoLogin.getText();
 				String senha = String.valueOf(campoSenha.getPassword());
 				
-				Cadastros.criarCadastroCliente(login, senha, nome);
+				cadastros.cadastrarCliente(login, senha, nome);
 			}
 		});
 		botaoCadastrar.setBounds(130, 212, 100, 23);
