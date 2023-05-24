@@ -7,13 +7,33 @@ import br.ufal.aracomp.PFPOO.Model.ClienteModel;
 
 public class Cliente {
 
-	private List<ClienteModel> cliente = new ArrayList<ClienteModel>();
+	private List<ClienteModel> clientes = new ArrayList<ClienteModel>();
+	private static Cliente cliente;
 	
-	public Cliente() {
+	private Cliente() {
+	}
+	
+	public static Cliente instaciar() {
+		if(cliente == null) {
+			cliente = new Cliente();
+		}
+		return cliente;
 	}
 	
 	public void cadastrarCliente(ClienteModel clienteModel) {
-		cliente.add(clienteModel);
+		clientes.add(clienteModel);
 		System.out.println("Cliente cadastrado com sucesso!");
+	}
+	
+	public Boolean verificarCliente(String login, String senha) {
+		boolean autetico = false;
+		
+		for(ClienteModel cliente : clientes) {
+			if(login.equals(cliente.getLogin()) && senha.equals(cliente.getSenha())) {
+				autetico = true;
+			}
+		}
+		
+		return autetico;
 	}
 }

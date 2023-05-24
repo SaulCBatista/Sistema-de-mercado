@@ -10,9 +10,9 @@ public class CadastrosModel {
 	private static int quantClientes;
 	private static int quantProdutos;
 	private static int quantAdministrador;
-	private static Cliente listaCliente = new Cliente();
+	private static Cliente listaCliente = Cliente.instaciar();
 	private static Administrador listaAdministrador = new Administrador("padrao@gmail.com", "123456", "padrao");
-	private static Produto listaProduto = new Produto();
+	private static Produto listaProduto = Produto.instaciar();
 	private static Endereco listaEndereco = new Endereco();
 	
 	private CadastrosModel () {
@@ -24,13 +24,6 @@ public class CadastrosModel {
 		ClienteModel cliente = new ClienteModel(login, senha, nome);
 		listaCliente.cadastrarCliente(cliente);
 		return cliente;
-	}
-	
-	public static AdministradorModel criarCadastroAdministrador(String login, String senha, String nome) {
-		quantAdministrador++;
-		AdministradorModel administrador = new AdministradorModel(login, senha, nome);
-		listaAdministrador.cadastrarAdministrador(administrador);
-		return administrador;
 	}
 	
 	public static EnderecoModel criarCadastroEndereco(int cep, String bairro, String rua, int numero) {

@@ -3,6 +3,9 @@ package br.ufal.aracomp.PFPOO.View;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import br.ufal.arapacomp.PFPOO.Control.Cadastros;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -10,6 +13,7 @@ import java.awt.event.ActionEvent;
 public class TelaAdministrador extends JFrame {
 
 	private JPanel contentPane;
+	private Cadastros cadastro = new Cadastros();
 
 	public TelaAdministrador() {
 		setTitle("Administrador");
@@ -21,19 +25,15 @@ public class TelaAdministrador extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton botaoCadastrarAdm = new JButton("Cadastrar administrador");
-		botaoCadastrarAdm.setBounds(131, 82, 181, 23);
-		contentPane.add(botaoCadastrarAdm);
-		
 		JButton botaoCadastrarProduto = new JButton("Cadastrar produto");
 		botaoCadastrarProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaCadastroProduto telaCadastroProduto = new TelaCadastroProduto();
-				setVisible(false);
+				dispose();
 				telaCadastroProduto.setVisible(true);
 			}
 		});
-		botaoCadastrarProduto.setBounds(131, 115, 181, 23);
+		botaoCadastrarProduto.setBounds(131, 71, 181, 23);
 		contentPane.add(botaoCadastrarProduto);
 		
 		JButton botaoVoltar = new JButton("Voltar");
@@ -44,8 +44,16 @@ public class TelaAdministrador extends JFrame {
 				dispose();
 			}
 		});
-		botaoVoltar.setBounds(170, 167, 105, 16);
+		botaoVoltar.setBounds(172, 147, 105, 16);
 		contentPane.add(botaoVoltar);
+		
+		JButton botaoListarProdutos = new JButton("Listar produtos");
+		botaoListarProdutos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cadastro.listarProdutosAdm();
+			}
+		});
+		botaoListarProdutos.setBounds(131, 105, 181, 23);
+		contentPane.add(botaoListarProdutos);
 	}
-
 }

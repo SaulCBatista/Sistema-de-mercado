@@ -8,8 +8,16 @@ import br.ufal.aracomp.PFPOO.Model.ProdutoModel;
 public class Produto {
 
 	private List<ProdutoModel> produtos = new ArrayList<ProdutoModel>();
+	private static Produto produto;
 	
-	public Produto() {
+	private Produto() {
+	}
+	
+	public static Produto instaciar() {
+		if(produto == null) {
+			produto = new Produto();
+		}
+		return produto;
 	}
 	
 	public void cadastrarProduto(ProdutoModel produtoModel) {
@@ -17,9 +25,15 @@ public class Produto {
 		System.out.println("Produto cadastrado com sucesso!");
 	}
 	
-	public void listarProdutos() {
+	public void listarProdutosAdm() {
 		for(ProdutoModel produto : produtos) {			
-			System.out.println("ID: " + produto.getID() + "Nome: " + produto.getNome() + "Preço de compra: " + produto.getPrecoCompra() + "Preço de venda: " + produto.getPrecoVenda());
+			System.out.println("ID: " + produto.getID() + " | Nome: " + produto.getNome() + " | Preço de compra: " + produto.getPrecoCompra() + " | Preço de venda: " + produto.getPrecoVenda());
+		}
+	}
+	
+	public void listarProdutosCliente() {
+		for(ProdutoModel produto : produtos) {			
+			System.out.println("ID: " + produto.getID() + " | Nome: " + produto.getNome() + " | Preço de venda: " + produto.getPrecoVenda());
 		}
 	}
 }

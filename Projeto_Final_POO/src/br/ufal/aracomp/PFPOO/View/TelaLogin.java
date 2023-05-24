@@ -68,15 +68,19 @@ public class TelaLogin extends JFrame{
 				String login = campoLogin.getText();
 				String senha = String.valueOf(campoSenha.getPassword());
 				
-				if(cadastro.verificarAdmPadrao(login, senha)) {
+				if(cadastro.verificarCliente(login, senha)) {
+					System.out.println("| Selecione o seus Produtos | \n");
+					cadastro.listaProdutosCliente();
+					setVisible(false);
+				}
+				else if(cadastro.verificarAdmPadrao(login, senha)) {
 					TelaAdministrador telaAdm = new TelaAdministrador();
 					telaAdm.setVisible(true);
 					setVisible(false);
 				}
 				else {
 					JOptionPane.showMessageDialog(botaoEntrar, "login ou senha incorretos!");
-				}
-					
+				}	
 			}
 		});
 		botaoEntrar.setBounds(49, 152, 89, 23);

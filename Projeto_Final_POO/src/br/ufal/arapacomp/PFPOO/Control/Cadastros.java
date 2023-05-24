@@ -4,7 +4,8 @@ import br.ufal.aracomp.PFPOO.Model.CadastrosModel;
 
 public class Cadastros {
 	
-	private Produto produto = new Produto();
+	private Produto produto = Produto.instaciar();
+	private Cliente cliente = Cliente.instaciar();
 	private Administrador administrador = new Administrador("padrao@gmail.com", "123456", "padrao");
 	
 	public Cadastros() {
@@ -14,8 +15,12 @@ public class Cadastros {
 		CadastrosModel.criarCadastroCliente(login, senha, nome);
 	}
 	
-	public void cadastrarAdministrador(String login, String senha, String nome) {
-		CadastrosModel.criarCadastroAdministrador(login, senha, nome);
+	public Boolean verificarCliente(String login, String senha) {
+		return cliente.verificarCliente(login, senha);
+	}
+	
+	public Boolean verificarAdmPadrao(String login, String senha) {
+		return administrador.verificarAdministrador(login, senha);
 	}
 	
 	public void cadastrarProduto(String nome, double precoCompra, double PrecoVenda) {
@@ -26,11 +31,11 @@ public class Cadastros {
 		CadastrosModel.criarCadastroEndereco(cep, bairro, rua, numero);
 	}
 	
-	public void listarProdutos() {
-		produto.listarProdutos();
+	public void listarProdutosAdm() {
+		produto.listarProdutosAdm();
 	}
 	
-	public Boolean verificarAdmPadrao(String login, String senha) {
-		return administrador.verificarAdmPadrao(login, senha);
+	public void listaProdutosCliente() {
+		produto.listarProdutosCliente();
 	}
 }

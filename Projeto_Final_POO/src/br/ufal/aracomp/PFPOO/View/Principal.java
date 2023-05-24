@@ -12,8 +12,9 @@ public class Principal {
 		/*
 		Cadastros cadastros = new Cadastros();
 		cadastros.cadastrarProduto("Macarrão", 2.5, 2.99);
-		cadastros.listarProdutos();
+		cadastros.cadastrarProduto("Refrigerante", 1.5, 1.99);
+		cadastros.listarProdutosAdm();
+		cadastros.listaProdutosCliente();
 		*/
-
 	}
 }
