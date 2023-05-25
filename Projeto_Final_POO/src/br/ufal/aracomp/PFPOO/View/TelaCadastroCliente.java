@@ -67,6 +67,10 @@ public class TelaCadastroCliente extends JFrame {
 				String senha = String.valueOf(campoSenha.getPassword());
 				
 				cliente.cadastrarCliente(login, senha, nome);
+				campoNome.setText("");
+				campoLogin.setText("");
+				campoSenha.setText("");
+				JOptionPane.showMessageDialog(botaoCadastrar, "Cliente cadastrado com sucesso!");
 			}
 		});
 		botaoCadastrar.setBounds(130, 212, 100, 23);

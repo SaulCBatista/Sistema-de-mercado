@@ -10,6 +10,7 @@ import br.ufal.arapacomp.PFPOO.Control.Cadastros;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -38,7 +39,7 @@ public class TelaCadastroProduto extends JFrame {
 		campoNome.setColumns(10);
 		
 		JLabel LabelNome = new JLabel("Nome:");
-		LabelNome.setBounds(20, 47, 46, 14);
+		LabelNome.setBounds(20, 47, 60, 14);
 		contentPane.add(LabelNome);
 		
 		campoPrecoCompra = new JTextField();
@@ -47,7 +48,7 @@ public class TelaCadastroProduto extends JFrame {
 		contentPane.add(campoPrecoCompra);
 		
 		JLabel labelPrecoCompra = new JLabel("Preço de Compra:");
-		labelPrecoCompra.setBounds(20, 97, 90, 14);
+		labelPrecoCompra.setBounds(20, 97, 130, 14);
 		contentPane.add(labelPrecoCompra);
 		
 		campoPrecoVenda = new JTextField();
@@ -56,7 +57,7 @@ public class TelaCadastroProduto extends JFrame {
 		contentPane.add(campoPrecoVenda);
 		
 		JLabel labelPrecoVenda = new JLabel("Preço de venda:");
-		labelPrecoVenda.setBounds(20, 144, 90, 14);
+		labelPrecoVenda.setBounds(20, 144, 130, 14);
 		contentPane.add(labelPrecoVenda);
 		
 		JButton botaoCadastrar = new JButton("Cadastrar");
@@ -67,6 +68,10 @@ public class TelaCadastroProduto extends JFrame {
 				double precoVenda = Double.valueOf(campoPrecoVenda.getText()).doubleValue();
 				
 				produto.cadastrarProduto(nome, precoCompra, precoVenda);
+				campoNome.setText("");
+				campoPrecoCompra.setText("");
+				campoPrecoVenda.setText("");
+				JOptionPane.showMessageDialog(botaoCadastrar, "Produto Cadastrado com sucesso!");
 			}
 		});
 		botaoCadastrar.setBounds(93, 206, 89, 23);

@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 import java.awt.event.ActionEvent;
 
 public class TelaLogin extends JFrame{
@@ -24,6 +25,7 @@ public class TelaLogin extends JFrame{
 	private JTextField campoLogin;
 	private JPasswordField campoSenha;
 	private Cadastros cadastro = new Cadastros();
+	private Scanner scanner = new Scanner(System.in);
 
 	public void iniciar() {
 		EventQueue.invokeLater(new Runnable() {
@@ -69,9 +71,39 @@ public class TelaLogin extends JFrame{
 				String senha = String.valueOf(campoSenha.getPassword());
 				
 				if(cadastro.verificarCliente(login, senha)) {
-					System.out.println("| Selecione o seus Produtos | \n");
-					cadastro.listaProdutosCliente();
 					setVisible(false);
+					String opcao = "";
+					double total = 0;
+					while(true) {
+						System.out.println("Digite [C] para comprar ou Digite [V] para cancelar e voltar");
+						opcao = scanner.next();
+						while(opcao.equalsIgnoreCase("C")) {
+							System.out.println("| Digite o nome ou o ID para selecionar os seus Produtos ou digite [F] para finalizar| \n");
+							cadastro.listaProdutosCliente();
+							String escolha = scanner.next();
+							total = total + cadastro.venderProduto(escolha, escolha);
+							if(escolha.equalsIgnoreCase("F")) {
+								opcao = "f";
+								System.out.println("O total do seu pedido: " + total);
+								TelaEndereco telaEndereco = new TelaEndereco();
+								telaEndereco.setVisible(true);
+								dispose();
+							}
+							else {
+							System.out.println("Total: " + total + "\n");
+							}
+						}
+						if(opcao.equalsIgnoreCase("V")) {
+							System.out.println("Volte sempre!");
+							break;
+						}
+						else if(opcao.equalsIgnoreCase("F")) {
+							break;
+						}
+						else {
+							System.out.println("Opção invalida!");
+						}
+					}
 				}
 				else if(cadastro.verificarAdmPadrao(login, senha)) {
 					TelaAdministrador telaAdm = new TelaAdministrador();

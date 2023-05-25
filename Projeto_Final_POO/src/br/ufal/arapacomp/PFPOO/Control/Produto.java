@@ -22,7 +22,6 @@ public class Produto {
 	
 	public void cadastrarProduto(ProdutoModel produtoModel) {
 		this.produtos.add(produtoModel);
-		System.out.println("Produto cadastrado com sucesso!");
 	}
 	
 	public void listarProdutosAdm() {
@@ -35,5 +34,15 @@ public class Produto {
 		for(ProdutoModel produto : produtos) {			
 			System.out.println("ID: " + produto.getID() + " | Nome: " + produto.getNome() + " | Preço de venda: " + produto.getPrecoVenda());
 		}
+	}
+	
+	public double vender(String ID, String nome) {
+		double total = 0;
+		for(ProdutoModel produto : produtos) {			
+			if(ID.equals(Integer.toString(produto.getID())) || (nome.equalsIgnoreCase(produto.getNome()))) {
+				total = produto.getPrecoVenda();
+			}
+		}
+		return total;
 	}
 }

@@ -38,4 +38,8 @@ public class Cadastros {
 	public void listaProdutosCliente() {
 		produto.listarProdutosCliente();
 	}
+	
+	public double venderProduto(String ID, String nome) {
+		return produto.vender(ID, nome);
+	}
 }

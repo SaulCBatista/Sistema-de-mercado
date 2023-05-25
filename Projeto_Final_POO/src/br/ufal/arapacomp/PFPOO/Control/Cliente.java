@@ -22,7 +22,6 @@ public class Cliente {
 	
 	public void cadastrarCliente(ClienteModel clienteModel) {
 		clientes.add(clienteModel);
-		System.out.println("Cliente cadastrado com sucesso!");
 	}
 	
 	public Boolean verificarCliente(String login, String senha) {
@@ -33,7 +32,6 @@ public class Cliente {
 				autetico = true;
 			}
 		}
-		
 		return autetico;
 	}
 }
