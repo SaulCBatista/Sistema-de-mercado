@@ -123,7 +123,7 @@ public class TelaLogin extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				TelaCadastroCliente telaCadastroCliente = new TelaCadastroCliente();
 				telaCadastroCliente.setVisible(true);
-				setVisible(false);
+				dispose();
 			}
 		});
 		botaoCadastrar.setBounds(148, 152, 106, 23);

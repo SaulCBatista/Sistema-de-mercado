@@ -7,5 +7,4 @@ public class ClienteModel extends Usuario {
 		this.senha = senha;
 		this.nome = nome;
 	}
-	
 }

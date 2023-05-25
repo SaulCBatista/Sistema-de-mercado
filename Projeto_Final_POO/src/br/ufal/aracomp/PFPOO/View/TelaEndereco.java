@@ -6,13 +6,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaEndereco extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField campoTextoCEP1;
+	private JTextField campoTextoCEP;
 	private JTextField campoTextoRua;
 	private JTextField campoTextoBairro;
 	private JTextField campoTextoNumero;
@@ -30,10 +33,10 @@ public class TelaEndereco extends JFrame {
 		labelCEP.setBounds(35, 35, 46, 14);
 		contentPane.add(labelCEP);
 		
-		campoTextoCEP1 = new JTextField();
-		campoTextoCEP1.setBounds(45, 56, 209, 20);
-		contentPane.add(campoTextoCEP1);
-		campoTextoCEP1.setColumns(10);
+		campoTextoCEP = new JTextField();
+		campoTextoCEP.setBounds(45, 56, 209, 20);
+		contentPane.add(campoTextoCEP);
+		campoTextoCEP.setColumns(10);
 		
 		JLabel labelTextoRua = new JLabel("Rua:");
 		labelTextoRua.setBounds(35, 87, 46, 14);
@@ -54,6 +57,17 @@ public class TelaEndereco extends JFrame {
 		contentPane.add(campoTextoBairro);
 		
 		JButton botaoFinalizar = new JButton("Finalizar");
+		botaoFinalizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				campoTextoCEP.setText("");
+				campoTextoRua.setText("");
+				campoTextoBairro.setText("");
+				campoTextoNumero.setText("");
+				
+				JOptionPane.showMessageDialog(botaoFinalizar, "Compra finalizada com sucesso!");
+				System.exit(0);
+			}
+		});
 		botaoFinalizar.setBounds(45, 227, 112, 23);
 		contentPane.add(botaoFinalizar);
 		

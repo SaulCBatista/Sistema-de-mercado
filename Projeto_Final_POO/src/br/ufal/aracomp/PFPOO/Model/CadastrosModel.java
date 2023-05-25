@@ -16,7 +16,6 @@ public class CadastrosModel {
 	private static Endereco listaEndereco = new Endereco();
 	
 	private CadastrosModel () {
-		
 	}
 	
 	public static ClienteModel criarCadastroCliente(String login, String senha, String nome) {
